@@ -1,66 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
 
+    <audio data-key="65" id="key65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" id="key83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" id="key68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" id="key70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" id="key71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" id="key72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" id="key74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" id="key75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" id="key76" src="sounds/tink.wav"></audio>
 
-  <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
-    </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">hihat</span>
-    </div>
-    <div data-key="68" class="key">
-      <kbd>D</kbd>
-      <span class="sound">kick</span>
-    </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
-      <span class="sound">snare</span>
-    </div>
-    <div data-key="75" class="key">
-      <kbd>K</kbd>
-      <span class="sound">tom</span>
-    </div>
-    <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">tink</span>
-    </div>
-  </div>
-
-  <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
-
-<script>
-
-</script>
-
-
-</body>
+    <script>
+      document.addEventListener("keydown", function playSound(keyPressed) {
+        if (keyPressed.keyCode === 65) {
+          const addBorder = document.querySelector('[data-key="65"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key65");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 83) {
+          const addBorder = document.querySelector('[data-key="83"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key83");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 68) {
+          const addBorder = document.querySelector('[data-key="68"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key68");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 70) {
+          const addBorder = document.querySelector('[data-key="70"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key70");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 71) {
+          const addBorder = document.querySelector('[data-key="71"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key71");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 72) {
+          const addBorder = document.querySelector('[data-key="72"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key72");
+          element.play();
+          element.currentTime = 0;
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 74) {
+          const addBorder = document.querySelector('[data-key="74"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key74");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 75) {
+          const addBorder = document.querySelector('[data-key="75"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key75");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        } else if (keyPressed.keyCode === 76) {
+          const addBorder = document.querySelector('[data-key="76"]');
+          addBorder.classList.add("playing");
+          const element = document.querySelector("#key76");
+          element.currentTime = 0;
+          element.play();
+          setTimeout(() => {
+            addBorder.classList.remove("playing");
+          }, 1000);
+        }
+      });
+    </script>
+  </body>
 </html>
