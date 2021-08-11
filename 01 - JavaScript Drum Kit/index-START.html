@@ -61,6 +61,7 @@
           const addBorder = document.querySelector('[data-key="65"]');
           addBorder.classList.add("playing");
           const element = document.querySelector("#key65");
+          console.log(element.currentTime);
           element.currentTime = 0;
           element.play();
           setTimeout(() => {
@@ -106,6 +107,7 @@
           const addBorder = document.querySelector('[data-key="72"]');
           addBorder.classList.add("playing");
           const element = document.querySelector("#key72");
+          console.log(element.currentTime);
           element.play();
           element.currentTime = 0;
           setTimeout(() => {
