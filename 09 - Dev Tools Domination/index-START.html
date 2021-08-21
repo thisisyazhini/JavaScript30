@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      const p = document.querySelector("p");
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+      function makeGreen() {
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
 
-    // Regular
+      // Regular
+      console.log("I am a comment");
 
-    // Interpolated
+      // Interpolated
+      console.log("I am an %s string", "modified");
+      console.log(`I am a dog and my name is ${dogs[0].name}`);
 
-    // Styled
+      // Styled
+      console.log("%c I am a big text", "font-size: 20px; color:#BADA55");
 
-    // warning!
+      // warning!
+      console.warn("I am an warning");
 
-    // Error :|
+      // Error :|
+      console.error("Oops, I am error");
 
-    // Info
+      // Info
+      console.info("JavaScript is awesome!");
 
-    // Testing
+      // Testing
+      console.assert(dogs[0].name === "Tommy", "The dog's name is not Tommy");
+      console.assert(1 === 1, "I won't display as I am right!");
 
-    // clearing
+      // clearing
+      console.clear();
 
-    // Viewing DOM Elements
+      // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
 
-    // Grouping together
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`I am a dog. My name is ${dog.name}`);
+        console.log(`I am ${dog.age} years old`);
+        console.groupEnd();
+      });
+      dogs.forEach((dog) => {
+        console.group(dog.name);
+        console.log(`I am a dog. My name is ${dog.name}`);
+        console.log(`I am ${dog.age} years old`);
+        console.groupEnd(dog.name);
+      });
 
-    // counting
+      // counting
+      console.count("dog");
 
-    // timing
-
-  </script>
-</body>
+      // timing
+      console.time("fetching data");
+      const endpoint =
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+      fetch(endpoint)
+        .then((data) => data.json())
+        .then((result) => {
+          console.timeEnd("fetching data");
+          console.log(result);
+        });
+    </script>
+  </body>
 </html>
