@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
-</head>
-<body>
-<script>
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script
+      type="text/javascript"
+      src="https://www.cornify.com/js/cornify.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+  </head>
+  <body>
+    <canvas id="my-canvas"></canvas>
+    <script>
+      const wordArray = [];
+      const secretWord = "yazhini";
+      const confettiSettings = { target: "my-canvas", animate: true };
+      let confetti;
+      window.addEventListener("keyup", (e) => {
+        wordArray.push(e.key);
+        wordArray.splice(
+          -secretWord.length - 1,
+          wordArray.length - secretWord.length
+        );
+        if (wordArray.join("").includes(secretWord)) {
+          confetti = new ConfettiGenerator(confettiSettings);
+          confetti.render();
+          cornify_add();
+        } else {
+          confetti.clear();
+        }
+        console.log(wordArray);
+      });
+    </script>
+  </body>
 </html>
